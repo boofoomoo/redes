@@ -1,6 +1,9 @@
+#
 library(tidyverse)
 library(readxl)
 library(igraph)
+load()
+#
 
 Ano11 <- read_excel("data/AnoaAno.xlsx", sheet = "2011")
 Ano11 <- select(Ano11, -'Ano')
@@ -220,7 +223,7 @@ plot(Itrip_12,
      vertex.size = 3,
      vertex.color = "green",
      layout=layout_nicely,
-     #vertex.label = NA,
+     vertex.label = V(Itrip_12)$names,
      edge.color = adjustcolor("grey50", alpha = .3)
 )
 
@@ -284,6 +287,43 @@ plot(Itrip_18,
      vertex.label = NA,
      edge.color = adjustcolor("grey50", alpha = .3)
 )
+
+
+
+#---------- Save Enviroment ---------
+save.image(file = ".RData")
+#------------------------------------
+
+install.packages("threejs")
+install.packages("htmlwidgets")
+
+library(threejs)
+library(htmlwidgets)
+
+
+
+net.js <- Itrip_12
+graph_attr(net.js, "layout") <- NULL
+
+V(Itrip_12)$color <- "green"
+gjs <- graphjs( net.js,
+                main = "Network!",
+                vertex.size = .8,
+                vertex.label = V(Itrip_12)$name,
+                vertex.color = V(Itrip_12)$color,
+                bg = "gray10",
+                stroke = F,
+                curvature = 0.1,
+                attraction = 0.9,
+                repulsion = 0.8,
+                opacity = 0.9
+        )
+
+print(gjs)
+saveWidget(gjs, file="Media-Network-gjs.html")
+browseURL("Media-Network-gjs.html")
+
+
 
 
 
