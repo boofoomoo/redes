@@ -1,0 +1,68 @@
+---
+title: "Teste Embed"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r libraries, include=FALSE}
+library(tidyverse)
+library(readxl)
+library(igraph)
+library(threejs)
+library(htmlwidgets)
+
+```
+embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r 2012, include = FALSE}
+Ano12 <- read_excel("data/AnoaAno.xlsx", sheet = "2012")
+Ano12 <- select(Ano12, -'Ano')
+mx_2012 <- crossprod(with(Ano12, table(Diferenciador, Atrativo)))
+Trip_12 <- read_excel("~/redes/data/Trip_12.xlsx")
+Trip_12 <- Trip_12[,-1]
+Trip_12 <- as.matrix(Trip_12)
+rownames(Trip_12) <- colnames(Trip_12)
+
+Itrip_12 <- simplify(graph_from_adjacency_matrix(Trip_12, mode = "Undirected"))
+```
+
+
+###3D Plot
+
+```{r 3D Plot, echo=TRUE}
+
+net.js <- Itrip_12
+graph_attr(net.js, "layout") <- NULL
+
+V(Itrip_12)$color <- "green"
+gjs <- graphjs( net.js,
+                main = "Network!",
+                layout = layout_on_sphere,
+                vertex.size = .8,
+                vertex.label = V(Itrip_12)$name,
+                vertex.color = V(Itrip_12)$color,
+                bg = "gray10",
+                stroke = F,
+                curvature = 0.1,
+                attraction = 0.9,
+                repulsion = 0.8,
+                opacity = 0.9
+        )
+
+```
+
+```{r, print, echo=FALSE}
+library(widgetframe)
+frameWidget(gjs)
+
+```
+
+
+3D
+
+[2012](C:\Users\gabriel.rangel\Documents\redes\Media-Network-gjs.html){target="_blank"}  
+
+

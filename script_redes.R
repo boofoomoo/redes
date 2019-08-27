@@ -2,7 +2,7 @@
 library(tidyverse)
 library(readxl)
 library(igraph)
-load()
+load("~/redes/.RData")
 #
 
 Ano11 <- read_excel("data/AnoaAno.xlsx", sheet = "2011")
@@ -308,6 +308,7 @@ graph_attr(net.js, "layout") <- NULL
 V(Itrip_12)$color <- "green"
 gjs <- graphjs( net.js,
                 main = "Network!",
+                layout = layout_on_sphere,
                 vertex.size = .8,
                 vertex.label = V(Itrip_12)$name,
                 vertex.color = V(Itrip_12)$color,
@@ -324,6 +325,12 @@ saveWidget(gjs, file="Media-Network-gjs.html")
 browseURL("Media-Network-gjs.html")
 
 
+install.packages("widgetframe")
+library(widgetframe)
+
+
+
+frameableWidget(gjs)
 
 
 
