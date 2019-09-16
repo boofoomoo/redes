@@ -57,11 +57,11 @@ write.csv(mx_2011, file = "Trip_11.csv")
 
 
 mx_2012 <- as.data.frame(mx_2012)
-write.csv(mx_2011, file = "Trip_12.csv")
+write.csv(mx_2012, file = "Trip_12.csv")
 
 
 mx_2013 <- as.data.frame(mx_2013)
-write.csv(mx_2011, file = "Trip_13.csv")
+write.csv(mx_2013, file = "Trip_13.csv")
 
 
 mx_2014 <- as.data.frame(mx_2014)
@@ -86,6 +86,11 @@ write.csv(mx_2018, file = "Trip_18.csv")
 
 mx_2019 <- as.data.frame(mx_2019)
 write.csv(mx_2019, file = "Trip_19.csv")
+
+
+# Oh boys, this is a quite bad method
+# recovering the data from the xlms file, dumb dumb, and the files 2011. 2012, 2013 are damn wrong
+# fix this bs, 
 
 
 #------------- Making the Igraph Object --------
@@ -332,6 +337,25 @@ library(widgetframe)
 
 frameableWidget(gjs)
 
+## Descriptives -------
+
+deg2011 <- as.data.frame(degree(Itrip_11)) #bro
+deg2012 <- as.data.frame(degree(Itrip_12)) #this makes
+deg2013 <- as.data.frame(degree(Itrip_13)) #zero fuckin sense
+deg2014 <- as.data.frame(degree(Itrip_14))
+deg2015 <- as.data.frame(degree(Itrip_15))
+deg2016 <- as.data.frame(degree(Itrip_16))
+deg2017 <- as.data.frame(degree(Itrip_17))
+deg2018 <- as.data.frame(degree(Itrip_18))
+
+## WTFFFF----------
+
+summary(deg2011)
+summary(deg2012)
+summary(deg2013)
 
 
 
+hist(deg2016, breaks = 1:vcount(Itrip_16)-1)
+
+summary(deg2016)
