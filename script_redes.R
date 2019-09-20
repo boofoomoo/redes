@@ -339,23 +339,52 @@ frameableWidget(gjs)
 
 ## Descriptives -------
 
-deg2011 <- as.data.frame(degree(Itrip_11)) #bro
-deg2012 <- as.data.frame(degree(Itrip_12)) #this makes
-deg2013 <- as.data.frame(degree(Itrip_13)) #zero fuckin sense
-deg2014 <- as.data.frame(degree(Itrip_14))
-deg2015 <- as.data.frame(degree(Itrip_15))
-deg2016 <- as.data.frame(degree(Itrip_16))
-deg2017 <- as.data.frame(degree(Itrip_17))
-deg2018 <- as.data.frame(degree(Itrip_18))
-
-## WTFFFF----------
-
-summary(deg2011)
-summary(deg2012)
-summary(deg2013)
+deg2011 <- t(degree(Itrip_11))
+deg2012 <- t(degree(Itrip_12))
+deg2013 <- t(degree(Itrip_13))
+deg2014 <- t(degree(Itrip_14))
+deg2015 <- t(degree(Itrip_15))
+deg2016 <- t(degree(Itrip_16))
+deg2017 <- t(degree(Itrip_17))
+deg2018 <- t(degree(Itrip_18))
 
 
+degrees <- plyr::rbind.fill(deg2011, deg2012, deg2013, deg2014, deg2015, deg2016, deg2017, deg2018)
 
+
+rownames(degrees) <- c("2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018")
+
+
+degrees <- as.data.frame(degrees)
+
+
+##
+hist(deg2012, breaks = 1:vcount(Itrip_12)-1)
+hist(deg2013, breaks = 1:vcount(Itrip_13)-1)
+hist(deg2014, breaks = 1:vcount(Itrip_14)-1)
+hist(deg2015, breaks = 1:vcount(Itrip_15)-1)
 hist(deg2016, breaks = 1:vcount(Itrip_16)-1)
+hist(deg2017, breaks = 1:vcount(Itrip_17)-1)
+hist(deg2018, breaks = 1:vcount(Itrip_18)-1)
+##
 
-summary(deg2016)
+
+ggplot(gather(degrees), aes(value)) + 
+        geom_histogram(bins = 10) + 
+        facet_wrap( ~key, scales = 'free_x')
+        
+
+
+ggplot(gather(mtcars), aes(value)) + 
+        geom_histogram(bins = 10) + 
+        facet_wrap(~key, scales = 'free_x')
+
+ndegrees <- as.numeric(degrees)
+
+hist(ndegrees, breaks = 1:vcount(Itrip_18)-1)
+
+
+
+
+sum(degrees, na.rm = T)
+mean(ndegrees, na.rm = T)

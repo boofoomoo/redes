@@ -1,6 +1,7 @@
 ---
 title: "Teste Embed"
 output: html_document
+runtime: Rmarkdown
 ---
 
 ```{r setup, include=FALSE}
