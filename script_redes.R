@@ -307,16 +307,15 @@ library(htmlwidgets)
 
 
 
-net.js <- Itrip_12
+net.js <- Itrip_16
 graph_attr(net.js, "layout") <- NULL
 
-V(Itrip_12)$color <- "green"
+V(Itrip_16)$color <- "green"
 gjs <- graphjs( net.js,
                 main = "Network!",
-                layout = layout_on_sphere,
                 vertex.size = .8,
-                vertex.label = V(Itrip_12)$name,
-                vertex.color = V(Itrip_12)$color,
+                vertex.label = V(Itrip_16)$name,
+                vertex.color = V(Itrip_16)$color,
                 bg = "gray10",
                 stroke = F,
                 curvature = 0.1,
@@ -324,6 +323,7 @@ gjs <- graphjs( net.js,
                 repulsion = 0.8,
                 opacity = 0.9
         )
+
 
 print(gjs)
 saveWidget(gjs, file="Media-Network-gjs.html")
@@ -373,11 +373,6 @@ ggplot(gather(degrees), aes(value)) +
         geom_histogram(bins = 10) + 
         facet_wrap( ~key, scales = 'free_x')
         
-
-
-ggplot(gather(mtcars), aes(value)) + 
-        geom_histogram(bins = 10) + 
-        facet_wrap(~key, scales = 'free_x')
 
 ndegrees <- as.numeric(degrees)
 
