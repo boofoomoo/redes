@@ -88,9 +88,6 @@ mx_2019 <- as.data.frame(mx_2019)
 write.csv(mx_2019, file = "Trip_19.csv")
 
 
-# Oh boys, this is a quite bad method
-# recovering the data from the xlms file, dumb dumb, and the files 2011. 2012, 2013 are damn wrong
-# fix this bs, 
 
 
 #------------- Making the Igraph Object --------
@@ -103,7 +100,7 @@ Trip_18 <- as.matrix(Trip_18)
 rownames(Trip_18) <- colnames(Trip_18)
 
 
-Itrip_18 <- simplify(graph_from_adjacency_matrix(Trip_18, mode = "Undirected"))
+Itrip_18 <- simplify(graph_from_adjacency_matrix(Trip_18, mode = "Undirected"), remove.multiple = FALSE)
 #Itrip_18 <- delete.vertices(Itrip_18, degree(Itrip_18) == 0)
 head(Itrip_18)
 
@@ -117,7 +114,7 @@ Trip_11 <- as.matrix(Trip_11)
 rownames(Trip_11) <- colnames(Trip_11)
 
 
-Itrip_11 <- simplify(graph_from_adjacency_matrix(Trip_11, mode = "Undirected"))
+Itrip_11 <- simplify(graph_from_adjacency_matrix(Trip_11, mode = "Undirected"), remove.multiple = FALSE)
 #Itrip_11 <- delete.vertices(Itrip_11, degree(Itrip_11) == 0)
 head(Itrip_11)
 
@@ -131,7 +128,7 @@ Trip_12 <- as.matrix(Trip_12)
 rownames(Trip_12) <- colnames(Trip_12)
 
 
-Itrip_12 <- simplify(graph_from_adjacency_matrix(Trip_12, mode = "Undirected"))
+Itrip_12 <- simplify(graph_from_adjacency_matrix(Trip_12, mode = "Undirected"), remove.multiple = FALSE)
 #Itrip_12 <- delete.vertices(Itrip_12, degree(Itrip_12) == 0)
 head(Itrip_12)
 
@@ -145,7 +142,7 @@ Trip_13 <- as.matrix(Trip_13)
 rownames(Trip_13) <- colnames(Trip_13)
 
 
-Itrip_13 <- simplify(graph_from_adjacency_matrix(Trip_13, mode = "Undirected"))
+Itrip_13 <- simplify(graph_from_adjacency_matrix(Trip_13, mode = "Undirected"), remove.multiple = FALSE)
 #Itrip_13 <- delete.vertices(Itrip_13, degree(Itrip_13) == 0)
 head(Itrip_13)
 
@@ -160,7 +157,7 @@ Trip_14 <- as.matrix(Trip_14)
 rownames(Trip_14) <- colnames(Trip_14)
 
 
-Itrip_14 <- simplify(graph_from_adjacency_matrix(Trip_14, mode = "Undirected"))
+Itrip_14 <- simplify(graph_from_adjacency_matrix(Trip_14, mode = "Undirected"), remove.multiple = FALSE)
 #Itrip_14 <- delete.vertices(Itrip_14, degree(Itrip_14) == 0)
 head(Itrip_14)
 
@@ -174,7 +171,7 @@ Trip_15 <- as.matrix(Trip_15)
 rownames(Trip_15) <- colnames(Trip_15)
 
 
-Itrip_15 <- simplify(graph_from_adjacency_matrix(Trip_15, mode = "Undirected"))
+Itrip_15 <- simplify(graph_from_adjacency_matrix(Trip_15, mode = "Undirected"), remove.multiple = FALSE)
 #Itrip_15 <- delete.vertices(Itrip_15, degree(Itrip_15) == 0)
 head(Itrip_15)
 
@@ -189,7 +186,7 @@ Trip_16 <- as.matrix(Trip_16)
 rownames(Trip_16) <- colnames(Trip_16)
 
 
-Itrip_16 <- simplify(graph_from_adjacency_matrix(Trip_16, mode = "Undirected"))
+Itrip_16 <- simplify(graph_from_adjacency_matrix(Trip_16, mode = "Undirected"), remove.multiple = FALSE)
 #Itrip_16 <- delete.vertices(Itrip_16, degree(Itrip_16) == 0)
 head(Itrip_16)
 
@@ -204,7 +201,7 @@ Trip_17 <- as.matrix(Trip_17)
 rownames(Trip_17) <- colnames(Trip_17)
 
 
-Itrip_17 <- simplify(graph_from_adjacency_matrix(Trip_17, mode = "Undirected"))
+Itrip_17 <- simplify(graph_from_adjacency_matrix(Trip_17, mode = "Undirected"), remove.multiple = FALSE)
 #Itrip_17 <- delete.vertices(Itrip_17, degree(Itrip_17) == 0)
 head(Itrip_17)
 
@@ -236,11 +233,12 @@ plot(Itrip_12,
 
 #2013---
 plot(Itrip_13,
-     vertex.size = 3,
+     vertex.size = 6,
      vertex.color = "green",
      layout=layout_nicely,
      vertex.label = NA,
-     edge.color = adjustcolor("grey50", alpha = .3)
+     edge.color = adjustcolor("grey50", alpha = .3),
+     edge.width=2
 )
 
 
@@ -285,6 +283,7 @@ plot(Itrip_17,
 
 
 #2018---
+
 plot(Itrip_18,
      vertex.size = 3,
      vertex.color = "green",
@@ -365,19 +364,14 @@ hist(deg2014, breaks = 1:vcount(Itrip_14)-1)
 hist(deg2015, breaks = 1:vcount(Itrip_15)-1)
 hist(deg2016, breaks = 1:vcount(Itrip_16)-1)
 hist(deg2017, breaks = 1:vcount(Itrip_17)-1)
-hist(deg2018, breaks = 1:vcount(Itrip_18)-1)
+hist(deg2018, breaks = 1:vcount(Itrip_1d8)-1)
 ##
 
-
+degrees <- as.data.frame(degrees)
 ggplot(gather(degrees), aes(value)) + 
         geom_histogram(bins = 10) + 
         facet_wrap( ~key, scales = 'free_x')
         
-
-
-ggplot(gather(mtcars), aes(value)) + 
-        geom_histogram(bins = 10) + 
-        facet_wrap(~key, scales = 'free_x')
 
 ndegrees <- as.numeric(degrees)
 
@@ -385,6 +379,8 @@ hist(ndegrees, breaks = 1:vcount(Itrip_18)-1)
 
 
 
-
 sum(degrees, na.rm = T)
 mean(ndegrees, na.rm = T)
+
+
+
