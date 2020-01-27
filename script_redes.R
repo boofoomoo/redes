@@ -338,14 +338,14 @@ frameableWidget(gjs)
 
 ## Descriptives -------
 
-deg2011 <- t(degree(Itrip_11))
-deg2012 <- t(degree(Itrip_12))
-deg2013 <- t(degree(Itrip_13))
-deg2014 <- t(degree(Itrip_14))
-deg2015 <- t(degree(Itrip_15))
-deg2016 <- t(degree(Itrip_16))
-deg2017 <- t(degree(Itrip_17))
-deg2018 <- t(degree(Itrip_18))
+deg2011 <- as.data.frame(t(degree(Itrip_11)))
+deg2012 <- as.data.frame(t(degree(Itrip_12)))
+deg2013 <- as.data.frame(t(degree(Itrip_13)))
+deg2014 <- as.data.frame(t(degree(Itrip_14)))
+deg2015 <- as.data.frame(t(degree(Itrip_15)))
+deg2016 <- as.data.frame(t(degree(Itrip_16)))
+deg2017 <- as.data.frame(t(degree(Itrip_17)))
+deg2018 <- as.data.frame(t(degree(Itrip_18)))
 
 
 degrees <- plyr::rbind.fill(deg2011, deg2012, deg2013, deg2014, deg2015, deg2016, deg2017, deg2018)
@@ -367,13 +367,14 @@ hist(deg2017, breaks = 1:vcount(Itrip_17)-1)
 hist(deg2018, breaks = 1:vcount(Itrip_1d8)-1)
 ##
 
-degrees <- as.data.frame(degrees)
+
+
 ggplot(gather(degrees), aes(value)) + 
         geom_histogram(bins = 10) + 
         facet_wrap( ~key, scales = 'free_x')
         
 
-ndegrees <- as.numeric(degrees)
+ndegrees <- as.numeric(t(degrees))
 
 hist(ndegrees, breaks = 1:vcount(Itrip_18)-1)
 
@@ -381,6 +382,27 @@ hist(ndegrees, breaks = 1:vcount(Itrip_18)-1)
 
 sum(degrees, na.rm = T)
 mean(ndegrees, na.rm = T)
+
+#--- Mean Degrees ----
+
+
+degrees <- t(degrees)
+
+
+degrees <- as.data.frame(cbind(degrees, Média = rowMeans(degrees, na.rm = T)))
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

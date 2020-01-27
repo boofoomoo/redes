@@ -1,5 +1,5 @@
 ---
-title: "Resumo das medidas e AnÃ¡lises"
+title: "Resumo das medidas e Análises"
 Author: Gabriel Rangel
 output: html_document
 ---
@@ -45,15 +45,25 @@ library(igraph)
 
 <!-- packages --->
 
-#####DistribuiÃ§Ã£o dos Degrees
+##Adicionar Visualizações aqui  
+
+
+
+
+
+#### Distribuição dos Degrees
+
 ```{r Degree_Dist, echo=FALSE, warning=FALSE}
-degrees <- as.data.frame(degrees)
 ggplot(gather(degrees), aes(value)) + 
         geom_histogram(bins = 10) + 
         facet_wrap( ~key, scales = 'free_x')
-
 ```
 
-        
+
+
+
+
+
+
 
 

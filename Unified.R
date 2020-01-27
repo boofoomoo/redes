@@ -6,6 +6,9 @@ T_Anos <- rbind(Ano11, Ano12, Ano13, Ano14, Ano15, Ano16, Ano17, Ano18)
 
 mx_Anos <- crossprod(with(T_Anos, table(Diferenciador, Atrativo)))
 
+freq_total <- as.data.frame(table(T_Anos$Atrativo))
+
+
 
 #------------- Making the Igraph Object --------
 
@@ -24,6 +27,4 @@ plot(ig_Anos,
 
 
 write.csv(mx_Anos, file = "~/redes/mx_Anos.csv")
-
-
 
