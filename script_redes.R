@@ -392,6 +392,7 @@ degrees <- t(degrees)
 degrees <- as.data.frame(cbind(degrees, Média = rowMeans(degrees, na.rm = T)))
 
 
+sdegrees <- as.data.frame(cbind(sdegrees, Média = rowMeans(sdegrees, na.rm = T)))
 
 
 

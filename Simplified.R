@@ -24,5 +24,21 @@ sdegrees <- plyr::rbind.fill(sdeg2011, sdeg2012, sdeg2013, sdeg2014, sdeg2015, s
 
 rownames(sdegrees) <- c("2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018")
 
-#----- Métricas-----
 
+#--- Stacking os anos ---
+
+T_Anos <- rbind(Ano11, Ano12, Ano13, Ano14, Ano15, Ano16, Ano17, Ano18)
+
+#--- Making the Matrix ------
+
+mx_Anos <- crossprod(with(T_Anos, table(Diferenciador, Atrativo)))
+
+freq_total <- as.data.frame(table(T_Anos$Atrativo))
+
+
+
+#------------- Making the Igraph Object --------
+smx_Anos <- simplify(ig_Anos, remove.loops = T, remove.multiple = T)
+
+
+st_degrees <- as.data.frame(degree(smx_Anos))

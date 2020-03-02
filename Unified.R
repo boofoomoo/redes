@@ -28,3 +28,7 @@ plot(ig_Anos,
 
 write.csv(mx_Anos, file = "~/redes/mx_Anos.csv")
 
+
+#--- Unified Degrees---
+
+t_degrees <- as.data.frame(degree(ig_Anos))
