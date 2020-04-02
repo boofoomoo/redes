@@ -396,14 +396,49 @@ sdegrees <- as.data.frame(cbind(sdegrees, Média = rowMeans(sdegrees, na.rm = T))
 
 
 
+#----- Other Metrics --------
+
+# Closeness Centrality
+
+close11 <- as.data.frame(t(closeness(Itrip_11)))
+close12 <- as.data.frame(t(closeness(Itrip_12)))
+close13 <- as.data.frame(t(closeness(Itrip_13)))
+close14 <- as.data.frame(t(closeness(Itrip_14)))
+close15 <- as.data.frame(t(closeness(Itrip_15)))
+close16 <- as.data.frame(t(closeness(Itrip_16)))
+close17 <- as.data.frame(t(closeness(Itrip_17)))
+close18 <- as.data.frame(t(closeness(Itrip_18)))
 
 
+tab_closeness <- plyr::rbind.fill(close11, close12, close13, close14, close15, close16, close17, close18)
 
 
+rownames(tab_closeness) <- c("2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018")
+
+tab_closeness <- t(tab_closeness)
+
+tab_closeness <- as.data.frame(cbind(tab_closeness, Média = rowMeans(tab_closeness, na.rm = T)))
 
 
+# Betweenness 
 
 
+between11 <- as.data.frame(t(betweenness(Itrip_11)))
+between12 <- as.data.frame(t(betweenness(Itrip_12)))
+between13 <- as.data.frame(t(betweenness(Itrip_13)))
+between14 <- as.data.frame(t(betweenness(Itrip_14)))
+between15 <- as.data.frame(t(betweenness(Itrip_15)))
+between16 <- as.data.frame(t(betweenness(Itrip_16)))
+between17 <- as.data.frame(t(betweenness(Itrip_17)))
+between18 <- as.data.frame(t(betweenness(Itrip_18)))
 
 
+tab_betweenness <- plyr::rbind.fill(between11, between12, between13, between14, between15, between16, between17, between18)
+
+
+rownames(tab_betweenness) <- c("2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018")
+
+tab_betweenness <- t(tab_betweenness)
+
+tab_betweenness <- as.data.frame(cbind(tab_betweenness, Média = rowMeans(tab_betweenness, na.rm = T)))
 

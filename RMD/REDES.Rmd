@@ -1,0 +1,43 @@
+---
+title: "REDES"
+author: "Gabriel Rangel"
+date: "10/03/2020"
+output: html_document
+---
+```{r libaries, message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
+library(tidyverse)
+library(readxl)
+library(igraph)
+load("~/redes/.RData")
+```
+
+## Introdução: Rede de atrativos turísticos de Gramado - RS  
+
+Dados sobre a visitação dos atrativos de Gramado - RS foram extraídos do sítio Tripadvisor, durante o perído de 28/02/2019 à 11/03/2019 colentando informações dos 8 anos anteriores. Cruzando os dados a partir da ID de cada usuário foi identificado todos os atrativos em que o usuário fez uma avaliação naquele mesmo ano, resultando em uma rede com 68 nós e 513.980 arestas.  
+
+Os dados foram trabalhados e as métricas calculadas utilizando a linguagem R e o pacote Igraph, as visualizações dos grafos foram feitas com o software Gephi.
+
+
+```{r files, message=FALSE, warning=FALSE, include=FALSE}
+attach(degrees)
+MD_degrees <- head(degrees[order(`Média`, decreasing = TRUE),], 10)
+attach(tab_closeness)
+MD_closeness <- head(tab_closeness[order(`Média`, decreasing = TRUE),], 10)
+attach(tab_betweenness)
+MD_betweenness <- head(tab_betweenness[order(`Média`, decreasing = TRUE),], 10)
+
+
+
+```
+
+
+### Métricas
+
+
+```{r degrees, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE}
+knitr::kable(MD_degrees, caption = "Degree Centrality")  
+knitr::kable(MD_closeness, caption = "Closeness Centrality", digits = 4)  
+knitr::kable(MD_betweenness, caption = "Betweenness Centrality", digits = 4)  
+```
+
+
