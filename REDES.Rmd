@@ -11,9 +11,16 @@ library(igraph)
 load("~/redes/.RData")
 ```
 
-## Introdução: Rede de atrativos turísticos de Gramado - RS  
+## Introdução: Rede de atrativos turísticos de Gramado - RS
 
-Dados sobre a visitação dos atrativos de Gramado - RS foram extraídos do sítio Tripadvisor, durante o perído de 28/02/2019 à 11/03/2019 colentando informações dos 8 anos anteriores. Cruzando os dados a partir da ID de cada usuário foi identificado todos os atrativos em que o usuário fez uma avaliação naquele mesmo ano, resultando em uma rede com 68 nós e 513.980 arestas.  
+
+#### Método
+
+
+
+
+
+Dados sobre a visitação dos atrativos de Gramado - RS foram extraídos do sítio Tripadvisor, durante o perído de 28/02/2019 à 11/03/2019 colentando informações dos 8 anos anteriores. Foram considerados apenas atrativos com mais de 20 avaliações em todo o período.
 
 Os dados foram trabalhados e as métricas calculadas utilizando a linguagem R e o pacote Igraph, as visualizações dos grafos foram feitas com o software Gephi.
 
@@ -22,5 +29,18 @@ Os dados foram trabalhados e as métricas calculadas utilizando a linguagem R e 
 ```{r degrees, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE}
 knitr::kable(head(degrees[1:8], 10))
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
