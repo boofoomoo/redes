@@ -3,9 +3,6 @@ library(tidyverse)
 library(igraph)
 
 
-# ------- PARA PARA PARA PARA, VAI TRABALHAR NAS PROPRIEDADES
-# DA CRIAÇÃO DO OBJETO IGRAPH PRIMEIRO ----------
-
 
 
 # Degree Centrality
@@ -57,6 +54,31 @@ degrease <- as.data.frame(t(degrease))
 
 
 # Eigenvector Centrality
+
+
+
+
+#---------- Making some metrics for the whole period ---------
+
+
+tab_all <- data.frame(Degree = degree(ig_Anos),
+                      W_degree = strength(ig_Anos),
+                      Closeness = closeness(ig_Anos, normalized = TRUE),
+                      Betweenness = betweenness(ig_Anos, directed = FALSE),
+                      Bonacich = power_centrality(ig_Anos, exponent = 0.5, sparse = FALSE),
+                      check.rows = TRUE)
+
+Eigen_all <- eigen_centrality(ig_Anos, scale = TRUE)
+
+tab_all <- cbind(tab_all ,Eigen = Eigen_all$vector)
+
+
+
+
+
+
+
+
 
 
 
