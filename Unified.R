@@ -12,7 +12,6 @@ freq_total <- as.data.frame(table(T_Anos$Atrativo))
 
 #------------- Making the Igraph Object --------
 
-ig_Anos <- delete.vertices(ig_Anos, which(strength(ig_Anos) < 8))
 
 #weighted
 ig_Anos <- graph_from_adjacency_matrix(mx_Anos,

@@ -100,7 +100,10 @@ Trip_18 <- as.matrix(Trip_18)
 rownames(Trip_18) <- colnames(Trip_18)
 
 
-Itrip_18 <- simplify(graph_from_adjacency_matrix(Trip_18, mode = "Undirected"), remove.multiple = FALSE)
+Itrip_18 <- graph_from_adjacency_matrix(Trip_18,
+                                        mode = "lower",
+                                        weighted = TRUE,
+                                        diag = FALSE )
 #Itrip_18 <- delete.vertices(Itrip_18, degree(Itrip_18) == 0)
 head(Itrip_18)
 
@@ -114,7 +117,10 @@ Trip_11 <- as.matrix(Trip_11)
 rownames(Trip_11) <- colnames(Trip_11)
 
 
-Itrip_11 <- simplify(graph_from_adjacency_matrix(Trip_11, mode = "Undirected"), remove.multiple = FALSE)
+Itrip_11 <- graph_from_adjacency_matrix(Trip_11,
+                                        mode = "lower",
+                                        weighted = TRUE,
+                                        diag = FALSE )
 #Itrip_11 <- delete.vertices(Itrip_11, degree(Itrip_11) == 0)
 head(Itrip_11)
 
@@ -128,7 +134,10 @@ Trip_12 <- as.matrix(Trip_12)
 rownames(Trip_12) <- colnames(Trip_12)
 
 
-Itrip_12 <- simplify(graph_from_adjacency_matrix(Trip_12, mode = "Undirected"), remove.multiple = FALSE)
+Itrip_12 <- graph_from_adjacency_matrix(Trip_12,
+                                        mode = "lower",
+                                        weighted = TRUE,
+                                        diag = FALSE )
 #Itrip_12 <- delete.vertices(Itrip_12, degree(Itrip_12) == 0)
 head(Itrip_12)
 
@@ -142,7 +151,10 @@ Trip_13 <- as.matrix(Trip_13)
 rownames(Trip_13) <- colnames(Trip_13)
 
 
-Itrip_13 <- simplify(graph_from_adjacency_matrix(Trip_13, mode = "Undirected"), remove.multiple = FALSE)
+Itrip_13 <- graph_from_adjacency_matrix(Trip_13,
+                                        mode = "lower",
+                                        weighted = TRUE,
+                                        diag = FALSE )
 #Itrip_13 <- delete.vertices(Itrip_13, degree(Itrip_13) == 0)
 head(Itrip_13)
 
@@ -157,7 +169,10 @@ Trip_14 <- as.matrix(Trip_14)
 rownames(Trip_14) <- colnames(Trip_14)
 
 
-Itrip_14 <- simplify(graph_from_adjacency_matrix(Trip_14, mode = "Undirected"), remove.multiple = FALSE)
+Itrip_14 <- graph_from_adjacency_matrix(Trip_14,
+                                        mode = "lower",
+                                        weighted = TRUE,
+                                        diag = FALSE )
 #Itrip_14 <- delete.vertices(Itrip_14, degree(Itrip_14) == 0)
 head(Itrip_14)
 
@@ -171,7 +186,10 @@ Trip_15 <- as.matrix(Trip_15)
 rownames(Trip_15) <- colnames(Trip_15)
 
 
-Itrip_15 <- simplify(graph_from_adjacency_matrix(Trip_15, mode = "Undirected"), remove.multiple = FALSE)
+Itrip_15 <- graph_from_adjacency_matrix(Trip_15,
+                                        mode = "lower",
+                                        weighted = TRUE,
+                                        diag = FALSE )
 #Itrip_15 <- delete.vertices(Itrip_15, degree(Itrip_15) == 0)
 head(Itrip_15)
 
@@ -186,7 +204,10 @@ Trip_16 <- as.matrix(Trip_16)
 rownames(Trip_16) <- colnames(Trip_16)
 
 
-Itrip_16 <- simplify(graph_from_adjacency_matrix(Trip_16, mode = "Undirected"), remove.multiple = FALSE)
+Itrip_16 <- graph_from_adjacency_matrix(Trip_16,
+                                        mode = "lower",
+                                        weighted = TRUE,
+                                        diag = FALSE )
 #Itrip_16 <- delete.vertices(Itrip_16, degree(Itrip_16) == 0)
 head(Itrip_16)
 
@@ -201,7 +222,10 @@ Trip_17 <- as.matrix(Trip_17)
 rownames(Trip_17) <- colnames(Trip_17)
 
 
-Itrip_17 <- simplify(graph_from_adjacency_matrix(Trip_17, mode = "Undirected"), remove.multiple = FALSE)
+Itrip_17 <- graph_from_adjacency_matrix(Trip_17,
+                                        mode = "lower",
+                                        weighted = TRUE,
+                                        diag = FALSE )
 #Itrip_17 <- delete.vertices(Itrip_17, degree(Itrip_17) == 0)
 head(Itrip_17)
 
