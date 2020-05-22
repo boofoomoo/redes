@@ -108,6 +108,7 @@ Itrip_18 <- graph_from_adjacency_matrix(Trip_18,
 head(Itrip_18)
 
 
+
 #2011---
 
 
@@ -123,6 +124,7 @@ Itrip_11 <- graph_from_adjacency_matrix(Trip_11,
                                         diag = FALSE )
 #Itrip_11 <- delete.vertices(Itrip_11, degree(Itrip_11) == 0)
 head(Itrip_11)
+
 
 
 #2012---
@@ -228,6 +230,26 @@ Itrip_17 <- graph_from_adjacency_matrix(Trip_17,
                                         diag = FALSE )
 #Itrip_17 <- delete.vertices(Itrip_17, degree(Itrip_17) == 0)
 head(Itrip_17)
+
+#---- Remove the bitch ass vertices -----
+
+Itrip_18 <- delete.vertices(Itrip_18, which(strength(Itrip_18) < 8))
+Itrip_17 <- delete.vertices(Itrip_17, which(strength(Itrip_17) < 8))
+Itrip_16 <- delete.vertices(Itrip_16, which(strength(Itrip_16) < 8))
+Itrip_15 <- delete.vertices(Itrip_15, which(strength(Itrip_15) < 8))
+Itrip_14 <- delete.vertices(Itrip_14, which(strength(Itrip_14) < 8))
+Itrip_13 <- delete.vertices(Itrip_13, which(strength(Itrip_13) < 8))
+Itrip_12 <- delete.vertices(Itrip_12, which(strength(Itrip_12) < 8))
+Itrip_11 <- delete.vertices(Itrip_11, which(strength(Itrip_11) < 8))
+
+
+
+
+
+
+
+
+
 
 
 #------- Plotting ------
