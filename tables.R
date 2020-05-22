@@ -5,34 +5,15 @@ library(igraph)
 
 
 
-# Degree Centrality
-
-
-# ----- Write a better method -------
-degrease <- list(
-  "2011" = degree(Itrip_11),
-  "2012" = degree(Itrip_12),
-  "2013" = degree(Itrip_13),
-  "2014" = degree(Itrip_14),
-  "2015" = degree(Itrip_15),
-  "2016" = degree(Itrip_16),
-  "2017" = degree(Itrip_17),
-  "2018" = degree(Itrip_18)
-)
-
-
-
-
-
-
-#-------
-
-
-
-
 
 
 #---------- The actual Metrics ---------
+
+
+# Degree Centrality -----
+
+
+
 degrease <- plyr::rbind.fill(as.data.frame(t(degree(Itrip_11))),
                              as.data.frame(t(degree(Itrip_12))),
                              as.data.frame(t(degree(Itrip_13))),
@@ -57,10 +38,44 @@ rownames(degrease) <- c("2011",
 
 degrease <- as.data.frame(t(degrease))
 
+# Weighted Degreee ---------
+
+
+stronk <- plyr::rbind.fill(as.data.frame(t(strength(Itrip_11))),
+                             as.data.frame(t(strength(Itrip_12))),
+                             as.data.frame(t(strength(Itrip_13))),
+                             as.data.frame(t(strength(Itrip_14))),
+                             as.data.frame(t(strength(Itrip_15))),
+                             as.data.frame(t(strength(Itrip_16))),
+                             as.data.frame(t(strength(Itrip_17))),
+                             as.data.frame(t(strength(Itrip_18)))
+)
 
 
 
-# Closness Centrality
+rownames(stronk) <- c("2011",
+                        "2012", 
+                        "2013", 
+                        "2014", 
+                        "2015", 
+                        "2016", 
+                        "2017", 
+                        "2018")
+
+
+stronk <- as.data.frame(t(stronk))
+
+
+
+
+
+
+
+
+
+
+
+# Closness Centrality ------
 
 closen <- plyr::rbind.fill(  as.data.frame(t(closeness(Itrip_11, normalized = TRUE))),
                              as.data.frame(t(closeness(Itrip_12, normalized = TRUE))),
@@ -89,7 +104,7 @@ closen <- as.data.frame(t(closen))
 
 
 
-# Betweenness Centrality
+# Betweenness Centrality ------
 
 
 bituin <- plyr::rbind.fill(  as.data.frame(t(betweenness(Itrip_11))),
@@ -119,7 +134,7 @@ bituin <- as.data.frame(t(bituin))
 
 
 
-# Bonaich POwer
+# Bonaich POwer -------
 
 bona <- plyr::rbind.fill(  as.data.frame(t(power_centrality(Itrip_11, exponent = .5, sparse = FALSE))),
                              as.data.frame(t(power_centrality(Itrip_12, exponent = .5, sparse = FALSE))),
@@ -128,7 +143,7 @@ bona <- plyr::rbind.fill(  as.data.frame(t(power_centrality(Itrip_11, exponent =
                              as.data.frame(t(power_centrality(Itrip_15, exponent = .5, sparse = FALSE))),
                              as.data.frame(t(power_centrality(Itrip_16, exponent = .5, sparse = FALSE))),
                              as.data.frame(t(power_centrality(Itrip_17, exponent = .5, sparse = FALSE))),
-                             as.data.frame(t(power_centrality(Itrip_18)))
+                             as.data.frame(t(power_centrality(Itrip_18, exponent = .5, sparse = FALSE)))
 )
 
 
@@ -150,7 +165,26 @@ bona <- as.data.frame(t(bona))
 
 
 
-# Eigenvector Centrality
+# Eigenvector Centrality -------
+
+
+
+
+
+
+
+
+
+# ------------ Exporting Tables -------------
+
+
+
+
+write.csv(degrease, file = "degrease.csv")
+write.csv(stronk, file = "stronk.csv")
+write.csv(closen, file = "closen.csv")
+write.csv(bituin, file = "bituin.csv")
+write.csv(bona, file = "bona.csv")
 
 
 
