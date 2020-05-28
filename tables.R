@@ -208,11 +208,68 @@ write.csv(tab_all, file = "metrics_all.csv")
 
 
 
+#------ Global metrics ------
+
+
+global <- plyr::rbind.fill(as.data.frame(t(diameter(Itrip_11))),
+                           as.data.frame(t(diameter(Itrip_12))),
+                           as.data.frame(t(diameter(Itrip_13))),
+                           as.data.frame(t(diameter(Itrip_14))),
+                           as.data.frame(t(diameter(Itrip_15))),
+                           as.data.frame(t(diameter(Itrip_16))),
+                           as.data.frame(t(diameter(Itrip_17))),
+                           as.data.frame(t(diameter(Itrip_18))))
 
 
 
+rownames(global) <- c("2011",
+                    "2012", 
+                    "2013", 
+                    "2014", 
+                    "2015", 
+                    "2016", 
+                    "2017", 
+                    "2018")
+
+
+global <- as.data.frame(t(global))
 
 
 
+#---
+
+global <- rbind(global, 1)
+
+global$`2011`[2] <- gsize(Itrip_11)
+global$`2012`[2] <- gsize(Itrip_12)
+global$`2013`[2] <- gsize(Itrip_13)
+global$`2014`[2] <- gsize(Itrip_14)
+global$`2015`[2] <- gsize(Itrip_15)
+global$`2016`[2] <- gsize(Itrip_16)
+global$`2017`[2] <- gsize(Itrip_17)
+global$`2018`[2] <- gsize(Itrip_18)
+
+
+#---
+global <- rbind(global, 1)
+
+global$`2011`[3] <- edge_density(Itrip_11)
+global$`2012`[3] <- edge_density(Itrip_12)
+global$`2013`[3] <- edge_density(Itrip_13)
+global$`2014`[3] <- edge_density(Itrip_14)
+global$`2015`[3] <- edge_density(Itrip_15)
+global$`2016`[3] <- edge_density(Itrip_16)
+global$`2017`[3] <- edge_density(Itrip_17)
+global$`2018`[3] <- edge_density(Itrip_18)
+
+
+
+#---
+
+global <- rbind(global, c(19, 30, 38, 41, 47, 51, 56, 64))
+
+
+
+rownames(global) <- c("Diameter", "Size", "Density", "n_Vertex")
 
 
