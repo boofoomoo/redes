@@ -273,3 +273,38 @@ global <- rbind(global, c(19, 30, 38, 41, 47, 51, 56, 64))
 rownames(global) <- c("Diameter", "Size", "Density", "n_Vertex")
 
 
+
+#--- Community detection ----
+
+
+random_walk <- cluster_walktrap(ig_Anos, weights = E(ig_Anos)$weight, steps = 2,
+                 merges = TRUE, modularity = TRUE, membership = TRUE)
+
+
+
+edge_bet <- cluster_edge_betweenness(ig_Anos, weights = E(ig_Anos)$weight,
+                                     directed = FALSE, edge.betweenness = TRUE, merges = TRUE,
+                                     bridges = TRUE, modularity = TRUE, membership = TRUE)
+
+
+
+mod_new <- cluster_leading_eigen(
+    ig_Anos,
+    steps = 1,
+    start = NULL,
+    options = arpack_defaults,
+    callback = NULL,
+    extra = NULL,
+    env = parent.frame()
+  )
+
+
+
+view(membership(mod_new))
+
+
+sizes(mod_new)
+
+plot_dendrogram(mod_new)
+
+
