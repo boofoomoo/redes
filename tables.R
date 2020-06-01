@@ -278,15 +278,19 @@ global <- t(global)
 #--- Community detection ----
 
 
-random_walk <- cluster_walktrap(ig_Anos, weights = E(ig_Anos)$weight, steps = 2,
-                 merges = TRUE, modularity = TRUE, membership = TRUE)
+random_walk <- cluster_walktrap(ig_Anos, weights = E(ig_Anos)$weight, steps = 3, modularity = TRUE, membership = TRUE)
 
+view(membership(random_walk))
 
+#--
 
 edge_bet <- cluster_edge_betweenness(ig_Anos, weights = E(ig_Anos)$weight,
                                      directed = FALSE, edge.betweenness = TRUE, merges = TRUE,
                                      bridges = TRUE, modularity = TRUE, membership = TRUE)
 
+view(membership(edge_bet))
+
+#--
 
 
 mod_new <- cluster_leading_eigen(
@@ -304,7 +308,7 @@ mod_new <- cluster_leading_eigen(
 view(membership(mod_new))
 
 
-sizes(mod_new)
+sizes(random_walk)
 
 plot_dendrogram(mod_new)
 
