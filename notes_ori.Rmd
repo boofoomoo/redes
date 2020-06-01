@@ -1,0 +1,47 @@
+
+Notes orientação:
+
+Normalizar tudo pelo maior outlier (lago negro)
+
+Normalizar entre os anos porcentagem
+
+Cadê as métricas globais da rede
+
+
+- Cara, pibic é simples
+
+
+Entrevistas com os gestores - as conclusões da rede como roteiros
+
+- 
+
+Fundamentar a definição de atrativo (até para eliminar), dos centralidades. 
+
+Pegar os nós que desapareceram
+
+-
+
+
+Evolução da rede
+
+Evolução ou morte dos nós
+
+Análise de clusters (cadê agora meudeus)
+
+- 
+
+Estutura do artigo
+
+-
+
+Quais atrativos tem destaque na rede (do they overlap with common sense)
+
+-
+
+Dia 10 - Entregar o esqueleto - Intro - Análise - Redes - Métricas - Bullets. 
+
+
+
+
+
+

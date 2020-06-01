@@ -65,6 +65,7 @@ compara <- data.frame(
         
 )
 
+
 # Oh yeas, so the weighted approach works just fine, thanks plis :)
 
 

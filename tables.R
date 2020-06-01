@@ -272,6 +272,7 @@ global <- rbind(global, c(19, 30, 38, 41, 47, 51, 56, 64))
 
 rownames(global) <- c("Diameter", "Size", "Density", "n_Vertex")
 
+global <- t(global)
 
 
 #--- Community detection ----
