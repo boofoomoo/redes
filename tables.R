@@ -107,14 +107,14 @@ closen <- as.data.frame(t(closen))
 # Betweenness Centrality ------
 
 
-bituin <- plyr::rbind.fill(  as.data.frame(t(betweenness(Itrip_11))),
-                             as.data.frame(t(betweenness(Itrip_12))),
-                             as.data.frame(t(betweenness(Itrip_13))),
-                             as.data.frame(t(betweenness(Itrip_14))),
-                             as.data.frame(t(betweenness(Itrip_15))),
-                             as.data.frame(t(betweenness(Itrip_16))),
-                             as.data.frame(t(betweenness(Itrip_17))),
-                             as.data.frame(t(betweenness(Itrip_18)))
+bituin <- plyr::rbind.fill(  as.data.frame(t(betweenness(Itrip_11, normalized = TRUE))),
+                             as.data.frame(t(betweenness(Itrip_12, normalized = TRUE))),
+                             as.data.frame(t(betweenness(Itrip_13, normalized = TRUE))),
+                             as.data.frame(t(betweenness(Itrip_14, normalized = TRUE))),
+                             as.data.frame(t(betweenness(Itrip_15, normalized = TRUE))),
+                             as.data.frame(t(betweenness(Itrip_16, normalized = TRUE))),
+                             as.data.frame(t(betweenness(Itrip_17, normalized = TRUE))),
+                             as.data.frame(t(betweenness(Itrip_18, normalized = TRUE)))
 )
 
 
