@@ -180,11 +180,11 @@ bona <- as.data.frame(t(bona))
 
 
 
-write.csv(degrease, file = "degrease.csv")
-write.csv(stronk, file = "stronk.csv")
-write.csv(closen, file = "closen.csv")
-write.csv(bituin, file = "bituin.csv")
-write.csv(bona, file = "bona.csv")
+#write.csv(degrease, file = "metricas.csv", quote = TRUE, na = "", fileEncoding = "UTF-8")
+write.csv(stronk, file = "stronk.csv", quote = TRUE, na = "", fileEncoding = "UTF-8")
+write.csv(closen, file = "closen.csv", quote = TRUE, na = "", fileEncoding = "UTF-8")
+write.csv(bituin, file = "bituin.csv", quote = TRUE, na = "", fileEncoding = "UTF-8")
+write.csv(bona, file = "bona.csv", quote = TRUE, na = "", fileEncoding = "UTF-8")
 
 
 
