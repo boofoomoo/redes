@@ -22,7 +22,7 @@ degrease <- plyr::rbind.fill(as.data.frame(t(degree(Itrip_11))),
                              as.data.frame(t(degree(Itrip_16))),
                              as.data.frame(t(degree(Itrip_17))),
                              as.data.frame(t(degree(Itrip_18)))
-                             )
+)
 
 
 
@@ -42,25 +42,25 @@ degrease <- as.data.frame(t(degrease))
 
 
 stronk <- plyr::rbind.fill(as.data.frame(t(strength(Itrip_11))),
-                             as.data.frame(t(strength(Itrip_12))),
-                             as.data.frame(t(strength(Itrip_13))),
-                             as.data.frame(t(strength(Itrip_14))),
-                             as.data.frame(t(strength(Itrip_15))),
-                             as.data.frame(t(strength(Itrip_16))),
-                             as.data.frame(t(strength(Itrip_17))),
-                             as.data.frame(t(strength(Itrip_18)))
+                           as.data.frame(t(strength(Itrip_12))),
+                           as.data.frame(t(strength(Itrip_13))),
+                           as.data.frame(t(strength(Itrip_14))),
+                           as.data.frame(t(strength(Itrip_15))),
+                           as.data.frame(t(strength(Itrip_16))),
+                           as.data.frame(t(strength(Itrip_17))),
+                           as.data.frame(t(strength(Itrip_18)))
 )
 
 
 
 rownames(stronk) <- c("2011",
-                        "2012", 
-                        "2013", 
-                        "2014", 
-                        "2015", 
-                        "2016", 
-                        "2017", 
-                        "2018")
+                      "2012", 
+                      "2013", 
+                      "2014", 
+                      "2015", 
+                      "2016", 
+                      "2017", 
+                      "2018")
 
 
 stronk <- as.data.frame(t(stronk))
@@ -90,13 +90,13 @@ closen <- plyr::rbind.fill(  as.data.frame(t(closeness(Itrip_11, normalized = TR
 
 
 rownames(closen) <- c("2011",
-                        "2012", 
-                        "2013", 
-                        "2014", 
-                        "2015", 
-                        "2016", 
-                        "2017", 
-                        "2018")
+                      "2012", 
+                      "2013", 
+                      "2014", 
+                      "2015", 
+                      "2016", 
+                      "2017", 
+                      "2018")
 
 
 closen <- as.data.frame(t(closen))
@@ -137,25 +137,25 @@ bituin <- as.data.frame(t(bituin))
 # Bonaich POwer -------
 
 bona <- plyr::rbind.fill(  as.data.frame(t(power_centrality(Itrip_11, exponent = .5, sparse = FALSE))),
-                             as.data.frame(t(power_centrality(Itrip_12, exponent = .5, sparse = FALSE))),
-                             as.data.frame(t(power_centrality(Itrip_13, exponent = .5, sparse = FALSE))),
-                             as.data.frame(t(power_centrality(Itrip_14, exponent = .5, sparse = FALSE))),
-                             as.data.frame(t(power_centrality(Itrip_15, exponent = .5, sparse = FALSE))),
-                             as.data.frame(t(power_centrality(Itrip_16, exponent = .5, sparse = FALSE))),
-                             as.data.frame(t(power_centrality(Itrip_17, exponent = .5, sparse = FALSE))),
-                             as.data.frame(t(power_centrality(Itrip_18, exponent = .5, sparse = FALSE)))
+                           as.data.frame(t(power_centrality(Itrip_12, exponent = .5, sparse = FALSE))),
+                           as.data.frame(t(power_centrality(Itrip_13, exponent = .5, sparse = FALSE))),
+                           as.data.frame(t(power_centrality(Itrip_14, exponent = .5, sparse = FALSE))),
+                           as.data.frame(t(power_centrality(Itrip_15, exponent = .5, sparse = FALSE))),
+                           as.data.frame(t(power_centrality(Itrip_16, exponent = .5, sparse = FALSE))),
+                           as.data.frame(t(power_centrality(Itrip_17, exponent = .5, sparse = FALSE))),
+                           as.data.frame(t(power_centrality(Itrip_18, exponent = .5, sparse = FALSE)))
 )
 
 
 
 rownames(bona) <- c("2011",
-                      "2012", 
-                      "2013", 
-                      "2014", 
-                      "2015", 
-                      "2016", 
-                      "2017", 
-                      "2018")
+                    "2012", 
+                    "2013", 
+                    "2014", 
+                    "2015", 
+                    "2016", 
+                    "2017", 
+                    "2018")
 
 
 bona <- as.data.frame(t(bona))
@@ -223,13 +223,13 @@ global <- plyr::rbind.fill(as.data.frame(t(diameter(Itrip_11))),
 
 
 rownames(global) <- c("2011",
-                    "2012", 
-                    "2013", 
-                    "2014", 
-                    "2015", 
-                    "2016", 
-                    "2017", 
-                    "2018")
+                      "2012", 
+                      "2013", 
+                      "2014", 
+                      "2015", 
+                      "2016", 
+                      "2017", 
+                      "2018")
 
 
 global <- as.data.frame(t(global))
@@ -294,14 +294,14 @@ view(membership(edge_bet))
 
 
 mod_new <- cluster_leading_eigen(
-    ig_Anos,
-    steps = 1,
-    start = NULL,
-    options = arpack_defaults,
-    callback = NULL,
-    extra = NULL,
-    env = parent.frame()
-  )
+  ig_Anos,
+  steps = 1,
+  start = NULL,
+  options = arpack_defaults,
+  callback = NULL,
+  extra = NULL,
+  env = parent.frame()
+)
 
 
 
@@ -311,5 +311,4 @@ view(membership(mod_new))
 sizes(random_walk)
 
 plot_dendrogram(mod_new)
-
 
