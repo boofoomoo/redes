@@ -253,14 +253,14 @@ global$`2018`[2] <- gsize(Itrip_18)
 #---
 global <- rbind(global, 1)
 
-global$`2011`[3] <- edge_density(Itrip_11)
-global$`2012`[3] <- edge_density(Itrip_12)
-global$`2013`[3] <- edge_density(Itrip_13)
-global$`2014`[3] <- edge_density(Itrip_14)
-global$`2015`[3] <- edge_density(Itrip_15)
-global$`2016`[3] <- edge_density(Itrip_16)
-global$`2017`[3] <- edge_density(Itrip_17)
-global$`2018`[3] <- edge_density(Itrip_18)
+global$`2011`[3] <- edge_density(simplify(Itrip_11))
+global$`2012`[3] <- edge_density(simplify(Itrip_12))
+global$`2013`[3] <- edge_density(simplify(Itrip_13))
+global$`2014`[3] <- edge_density(simplify(Itrip_14))
+global$`2015`[3] <- edge_density(simplify(Itrip_15))
+global$`2016`[3] <- edge_density(simplify(Itrip_16))
+global$`2017`[3] <- edge_density(simplify(Itrip_17))
+global$`2018`[3] <- edge_density(simplify(Itrip_18))
 
 
 
@@ -311,4 +311,5 @@ view(membership(mod_new))
 sizes(random_walk)
 
 plot_dendrogram(mod_new)
+
 
