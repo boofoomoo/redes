@@ -77,14 +77,14 @@ stronk <- as.data.frame(t(stronk))
 
 # Closness Centrality ------
 
-closen <- plyr::rbind.fill(  as.data.frame(t(closeness(Itrip_11, normalized = TRUE))),
-                             as.data.frame(t(closeness(Itrip_12, normalized = TRUE))),
-                             as.data.frame(t(closeness(Itrip_13, normalized = TRUE))),
-                             as.data.frame(t(closeness(Itrip_14, normalized = TRUE))),
-                             as.data.frame(t(closeness(Itrip_15, normalized = TRUE))),
-                             as.data.frame(t(closeness(Itrip_16, normalized = TRUE))),
-                             as.data.frame(t(closeness(Itrip_17, normalized = TRUE))),
-                             as.data.frame(t(closeness(Itrip_18, normalized = TRUE)))
+closen <- plyr::rbind.fill(  as.data.frame(t(closeness(Itrip_11, normalized = TRUE, weights = NA))),
+                             as.data.frame(t(closeness(Itrip_12, normalized = TRUE, weights = NA))),
+                             as.data.frame(t(closeness(Itrip_13, normalized = TRUE, weights = NA))),
+                             as.data.frame(t(closeness(Itrip_14, normalized = TRUE, weights = NA))),
+                             as.data.frame(t(closeness(Itrip_15, normalized = TRUE, weights = NA))),
+                             as.data.frame(t(closeness(Itrip_16, normalized = TRUE, weights = NA))),
+                             as.data.frame(t(closeness(Itrip_17, normalized = TRUE, weights = NA))),
+                             as.data.frame(t(closeness(Itrip_18, normalized = TRUE, weights = NA)))
 )
 
 
@@ -107,13 +107,13 @@ closen <- as.data.frame(t(closen))
 # Betweenness Centrality ------
 
 
-bituin <- plyr::rbind.fill(  as.data.frame(t(betweenness(Itrip_11, normalized = TRUE))),
-                             as.data.frame(t(betweenness(Itrip_12, normalized = TRUE))),
-                             as.data.frame(t(betweenness(Itrip_13, normalized = TRUE))),
-                             as.data.frame(t(betweenness(Itrip_14, normalized = TRUE))),
-                             as.data.frame(t(betweenness(Itrip_15, normalized = TRUE))),
-                             as.data.frame(t(betweenness(Itrip_16, normalized = TRUE))),
-                             as.data.frame(t(betweenness(Itrip_17, normalized = TRUE))),
+bituin <- plyr::rbind.fill(  as.data.frame(t(betweenness(Itrip_11, normalized = TRUE, weights = NA))),
+                             as.data.frame(t(betweenness(Itrip_12, normalized = TRUE, weights = NA))),
+                             as.data.frame(t(betweenness(Itrip_13, normalized = TRUE, weights = NA))),
+                             as.data.frame(t(betweenness(Itrip_14, normalized = TRUE, weights = NA))),
+                             as.data.frame(t(betweenness(Itrip_15, normalized = TRUE, weights = NA))),
+                             as.data.frame(t(betweenness(Itrip_16, normalized = TRUE, weights = NA))),
+                             as.data.frame(t(betweenness(Itrip_17, normalized = TRUE, weights = NA))),
                              as.data.frame(t(betweenness(Itrip_18, normalized = TRUE)))
 )
 
@@ -195,8 +195,10 @@ write.csv(bona, file = "bona.csv", quote = TRUE, na = "", fileEncoding = "UTF-8"
 
 tab_all <- data.frame(Degree = degree(ig_Anos),
                       W_degree = strength(ig_Anos),
-                      Closeness = closeness(ig_Anos, normalized = TRUE),
-                      Betweenness = betweenness(ig_Anos, directed = FALSE),
+                      Closeness = closeness(ig_Anos, normalized = TRUE, weights = NULL),
+                      Betweenness1 = betweenness(ig_Anos, weights = NULL),
+                      Betweenness2 = betweenness(ig_Anos),
+                      Betweenness3 = betweenness(ig_Anos, ),
                       Bonacich = power_centrality(ig_Anos, exponent = 0.5, sparse = FALSE),
                       check.rows = TRUE)
 
@@ -311,5 +313,27 @@ view(membership(mod_new))
 sizes(random_walk)
 
 plot_dendrogram(mod_new)
+
+#-----
+
+boxplot(rowSums(stronk, na.rm = TRUE))$out
+
+
+All2 <- read_excel(
+  "Results/All2.xlsx",
+  sheet = "Planilha1", col_names = FALSE,
+  col_types = c("numeric")
+)
+All2 <- All2*100
+
+boxplot(All2)$out
+
+#--------- Testing metrics --------
+
+g <- sample_gnp(10, 3/10)
+view(betweenness(g, normalized = TRUE))
+
+plot(g)
+
 
 

@@ -1,44 +1,90 @@
+---
+title: "Notas e notas"
+author: "gabriel"
+date: "25/06/2020"
+output: html_document
+---
 
 Notes orientação:
+```{r eval=FALSE, include=FALSE}
+# Normalizar tudo pelo maior outlier (lago negro)
+# 
+# Normalizar entre os anos porcentagem
+# 
+# Cadê as métricas globais da rede
+# 
+# 
+# - Cara, pibic é simples
+# 
+# 
+# Entrevistas com os gestores - as conclusões da rede como roteiros
+# 
+# - 
+# 
+# Fundamentar a definição de atrativo (até para eliminar), dos centralidades. 
+# 
+# Pegar os nós que desapareceram
+# 
+# -
+# 
+# 
+# Evolução da rede
+# 
+# Evolução ou morte dos nós
+# 
+# Análise de clusters (cadê agora meudeus)
+# 
+# - 
+# 
+# Estutura do artigo
+# 
+# -
+# 
+# Quais atrativos tem destaque na rede (do they overlap with common sense)
+# 
+# -
+# 
+# Dia 10 - Entregar o esqueleto - Intro - Análise - Redes - Métricas - Bullets. 
 
-Normalizar tudo pelo maior outlier (lago negro)
 
-Normalizar entre os anos porcentagem
-
-Cadê as métricas globais da rede
+```
 
 
-- Cara, pibic é simples
+## General notes about metrics---------------------------------------------
 
 
-Entrevistas com os gestores - as conclusões da rede como roteiros
-
-- 
-
-Fundamentar a definição de atrativo (até para eliminar), dos centralidades. 
-
-Pegar os nós que desapareceram
-
--
+* Centralidade de Grau
+  + No acumulado dos anos os nós com maior grau são (x). Ressalta-se que o atrativo com o grau mais alto da rede "Lago Negro" possui grau 11,5 vezes maior do que a média, seguido do "Mini Mundo" 10 vezes maior que a média. Depois disso a rede se estabiliza com 6x e vai diminuindo de forma mais gradual.
+  + Observando os nós com maior variação da centralidade de grau ao longo dos anos (através do coeficiente de variação), 
 
 
-Evolução da rede
 
-Evolução ou morte dos nós
 
-Análise de clusters (cadê agora meudeus)
 
-- 
 
-Estutura do artigo
 
--
 
-Quais atrativos tem destaque na rede (do they overlap with common sense)
 
--
 
-Dia 10 - Entregar o esqueleto - Intro - Análise - Redes - Métricas - Bullets. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

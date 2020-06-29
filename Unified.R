@@ -37,7 +37,7 @@ sig_Anos <-
 plot(ig_Anos,
      vertex.size = 3,
      vertex.color = "green",
-     layout=layout_with_fr,
+     layout=layout_nicely,
      vertex.label = NA,
      edge.color = adjustcolor("grey50", alpha = .3)
 )

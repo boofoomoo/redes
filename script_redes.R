@@ -231,6 +231,7 @@ Itrip_17 <- graph_from_adjacency_matrix(Trip_17,
 #Itrip_17 <- delete.vertices(Itrip_17, degree(Itrip_17) == 0)
 head(Itrip_17)
 
+
 #---- Remove the bitch ass vertices -----
 
 Itrip_18 <- delete.vertices(Itrip_18, which(strength(Itrip_18) < 8))
@@ -435,10 +436,10 @@ mean(ndegrees, na.rm = T)
 degrees <- t(degrees)
 
 
-degrees <- as.data.frame(cbind(degrees, Média = rowMeans(degrees, na.rm = T)))
+degrees <- as.data.frame(cbind(degrees, M?dia = rowMeans(degrees, na.rm = T)))
 
 
-sdegrees <- as.data.frame(cbind(sdegrees, Média = rowMeans(sdegrees, na.rm = T)))
+sdegrees <- as.data.frame(cbind(sdegrees, M?dia = rowMeans(sdegrees, na.rm = T)))
 
 
 
