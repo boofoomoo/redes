@@ -280,7 +280,14 @@ global <- t(global)
 #--- Community detection ----
 
 
-random_walk <- cluster_walktrap(ig_Anos, weights = E(ig_Anos)$weight, steps = 3, modularity = TRUE, membership = TRUE)
+random_walk <-
+  cluster_walktrap(
+    ig_Anos,
+    weights = E(ig_Anos)$weight,
+    steps = 3,
+    modularity = TRUE,
+    membership = TRUE
+  )
 
 view(membership(random_walk))
 
@@ -334,6 +341,13 @@ g <- sample_gnp(10, 3/10)
 view(betweenness(g, normalized = TRUE))
 
 plot(g)
+
+#----- Teste de Hipóteses kikiki ------
+
+
+View(strength(Itrip_18, vids = "Parque Gaúcho"))
+
+view(distances(ig_Anos, v = "Parque Gaúcho"))
 
 
 
