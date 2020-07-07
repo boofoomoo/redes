@@ -245,14 +245,6 @@ Itrip_11 <- delete.vertices(Itrip_11, which(strength(Itrip_11) < 8))
 
 
 
-
-
-
-
-
-
-
-
 #------- Plotting ------
 
 

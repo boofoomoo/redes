@@ -195,11 +195,9 @@ write.csv(bona, file = "bona.csv", quote = TRUE, na = "", fileEncoding = "UTF-8"
 
 tab_all <- data.frame(Degree = degree(ig_Anos),
                       W_degree = strength(ig_Anos),
-                      Closeness = closeness(ig_Anos, normalized = TRUE, weights = NULL),
-                      Betweenness1 = betweenness(ig_Anos, weights = NULL),
-                      Betweenness2 = betweenness(ig_Anos),
-                      Betweenness3 = betweenness(ig_Anos, ),
-                      Bonacich = power_centrality(ig_Anos, exponent = 0.5, sparse = FALSE),
+                      Closeness = closeness(ig_Anos, normalized = TRUE, weights = NA),
+                      Betweenness1 = betweenness(ig_Anos, weights = NA),
+                      Bonacich = power_centrality(ig_Anos, exponent = 1, sparse = FALSE),
                       check.rows = TRUE)
 
 Eigen_all <- eigen_centrality(ig_Anos, scale = TRUE)
@@ -350,4 +348,10 @@ View(strength(Itrip_18, vids = "Parque Gaúcho"))
 view(distances(ig_Anos, v = "Parque Gaúcho"))
 
 
+#--
+
+View(shortest_paths(ig_Anos, from = "A Mina", output = "vpath"))
+
+
+view(get.edge.ids())
 
