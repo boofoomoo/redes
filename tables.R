@@ -355,3 +355,29 @@ View(shortest_paths(ig_Anos, from = "A Mina", output = "vpath"))
 
 view(get.edge.ids())
 
+# Trynna create a ranking table -----------
+
+ranked <- as.data.frame(row.names(tab_all))
+
+ranked$"2011" <- NA
+ranked$"2012" <- NA
+ranked$"2013" <- NA
+ranked$"2014" <- NA
+ranked$"2015" <- NA
+ranked$"2016" <- NA
+ranked$"2017" <- NA
+ranked$"2018" <- NA
+
+dat$rank[order.scores] <- 1:nrow(dat)
+dat
+
+
+
+
+
+
+
+
+
+
+
