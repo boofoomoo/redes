@@ -114,7 +114,7 @@ bituin <- plyr::rbind.fill(  as.data.frame(t(betweenness(Itrip_11, normalized = 
                              as.data.frame(t(betweenness(Itrip_15, normalized = TRUE, weights = NA))),
                              as.data.frame(t(betweenness(Itrip_16, normalized = TRUE, weights = NA))),
                              as.data.frame(t(betweenness(Itrip_17, normalized = TRUE, weights = NA))),
-                             as.data.frame(t(betweenness(Itrip_18, normalized = TRUE)))
+                             as.data.frame(t(betweenness(Itrip_18, normalized = TRUE, weights = NA)))
 )
 
 
@@ -357,22 +357,28 @@ view(get.edge.ids())
 
 # Trynna create a ranking table -----------
 
-ranked <- as.data.frame(row.names(tab_all))
+ranked <- data.frame("2011" = rank(bituin$`2011`, ties.method = "first"),
+                     "2012" = rank(bituin$`2012`, ties.method = "first"),
+                     "2013" = rank(bituin$`2013`, ties.method = "first"),
+                     "2014" = rank(bituin$`2014`, ties.method = "first"),
+                     "2015" = rank(bituin$`2015`, ties.method = "first"),
+                     "2016" = rank(bituin$`2016`, ties.method = "first"),
+                     "2017" = rank(bituin$`2017`, ties.method = "first"),
+                     "2018" = rank(bituin$`2018`, ties.method = "first"),
+                     row.names = row.names(bituin),
+                     check.rows = TRUE
+                     )
 
-ranked$"2011" <- NA
-ranked$"2012" <- NA
-ranked$"2013" <- NA
-ranked$"2014" <- NA
-ranked$"2015" <- NA
-ranked$"2016" <- NA
-ranked$"2017" <- NA
-ranked$"2018" <- NA
+
+
+ranked <- data.frame("2011" = rank(bituin$`2011`, na.last = "keep", ties.method = "last"),
+                     row.names = row.names(bituin))
 
 dat$rank[order.scores] <- 1:nrow(dat)
 dat
 
 
-
+"https://towardsdatascience.com/r-rank-vs-order-753cc7665951"
 
 
 
