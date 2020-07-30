@@ -274,6 +274,15 @@ rownames(global) <- c("Diameter", "Size", "Density", "n_Vertex")
 
 global <- t(global)
 
+cluster_coef <- data.frame("2011" = transitivity(Itrip_11, type = "global"),
+                           "2012" =  transitivity(Itrip_12, type = "global"),
+                           "2013" = transitivity(Itrip_13, type = "global"),
+                           "2014" =  transitivity(Itrip_14, type = "global"),
+                           "2015" = transitivity(Itrip_15, type = "global"),
+                           "2016" = transitivity(Itrip_16, type = "global"),
+                           "2017" =  transitivity(Itrip_17, type = "global"),
+                           "2018" = transitivity(Itrip_18, type = "global")
+                           )
 
 #--- Community detection ----
 
