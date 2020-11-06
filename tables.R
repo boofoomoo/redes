@@ -420,7 +420,34 @@ write.csv(rank_close, file = "rank_close.csv", quote = TRUE, na = "", fileEncodi
 write.csv(rank_stronk, file = "rank_stronk.csv", quote = TRUE, na = "", fileEncoding = "UTF-8")
 
 
+# Clustering Coefficient -----
 
 
+View(data.frame(
+  "2011" = transitivity(Itrip_11, type = "global"),
+  "2012" = transitivity(Itrip_12, type = "global"),
+  "2013" = transitivity(Itrip_13, type = "global"),
+  "2014" = transitivity(Itrip_14, type = "global"),
+  "2015" = transitivity(Itrip_15, type = "global"),
+  "2016" = transitivity(Itrip_16, type = "global"),
+  "2017" = transitivity(Itrip_17, type = "global"),
+  "2018" = transitivity(Itrip_18, type = "global")
+  )
+)
 
+
+# Average Path Lenght -----
+
+
+View(data.frame(
+  "2011" = mean_distance(Itrip_11),
+  "2012" = mean_distance(Itrip_12),
+  "2013" = mean_distance(Itrip_13),
+  "2014" = mean_distance(Itrip_14),
+  "2015" = mean_distance(Itrip_15),
+  "2016" = mean_distance(Itrip_16),
+  "2017" = mean_distance(Itrip_17),
+  "2018" = mean_distance(Itrip_18)
+)
+)
 
