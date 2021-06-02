@@ -369,28 +369,28 @@ view(get.edge.ids())
 
 # Betweenness--
 
-rank_between <- data.frame("2011" = rank(-bituin$`2011`, ties.method = "random", na.last = "keep"),
-                     "2012" = rank(-bituin$`2012`, ties.method = "random", na.last = "keep"),
-                     "2013" = rank(-bituin$`2013`, ties.method = "random", na.last = "keep"),
-                     "2014" = rank(-bituin$`2014`, ties.method = "random", na.last = "keep"),
-                     "2015" = rank(-bituin$`2015`, ties.method = "random", na.last = "keep"),
-                     "2016" = rank(-bituin$`2016`, ties.method = "random", na.last = "keep"),
-                     "2017" = rank(-bituin$`2017`, ties.method = "random", na.last = "keep"),
-                     "2018" = rank(-bituin$`2018`, ties.method = "random", na.last = "keep"),
+rank_between <- data.frame("2011" = rank(-bituin$`2011`, ties.method = "average", na.last = "keep"),
+                     "2012" = rank(-bituin$`2012`, ties.method = "average", na.last = "keep"),
+                     "2013" = rank(-bituin$`2013`, ties.method = "average", na.last = "keep"),
+                     "2014" = rank(-bituin$`2014`, ties.method = "average", na.last = "keep"),
+                     "2015" = rank(-bituin$`2015`, ties.method = "average", na.last = "keep"),
+                     "2016" = rank(-bituin$`2016`, ties.method = "average", na.last = "keep"),
+                     "2017" = rank(-bituin$`2017`, ties.method = "average", na.last = "keep"),
+                     "2018" = rank(-bituin$`2018`, ties.method = "average", na.last = "keep"),
                      row.names = row.names(bituin),
                      check.rows = TRUE
                      )
 
 
 # Weighted Degree--
-rank_stronk <- data.frame("2011" = rank(-stronk$`2011`, ties.method = "random", na.last = "keep"),
-                           "2012" = rank(-stronk$`2012`, ties.method = "random", na.last = "keep"),
-                           "2013" = rank(-stronk$`2013`, ties.method = "random", na.last = "keep"),
-                           "2014" = rank(-stronk$`2014`, ties.method = "random", na.last = "keep"),
-                           "2015" = rank(-stronk$`2015`, ties.method = "random", na.last = "keep"),
-                           "2016" = rank(-stronk$`2016`, ties.method = "random", na.last = "keep"),
-                           "2017" = rank(-stronk$`2017`, ties.method = "random", na.last = "keep"),
-                           "2018" = rank(-stronk$`2018`, ties.method = "random", na.last = "keep"),
+rank_stronk <- data.frame("2011" = rank(-stronk$`2011`, ties.method = "average", na.last = "keep"),
+                           "2012" = rank(-stronk$`2012`, ties.method = "average", na.last = "keep"),
+                           "2013" = rank(-stronk$`2013`, ties.method = "average", na.last = "keep"),
+                           "2014" = rank(-stronk$`2014`, ties.method = "average", na.last = "keep"),
+                           "2015" = rank(-stronk$`2015`, ties.method = "average", na.last = "keep"),
+                           "2016" = rank(-stronk$`2016`, ties.method = "average", na.last = "keep"),
+                           "2017" = rank(-stronk$`2017`, ties.method = "average", na.last = "keep"),
+                           "2018" = rank(-stronk$`2018`, ties.method = "average", na.last = "keep"),
                            row.names = row.names(stronk),
                            check.rows = TRUE
 )
@@ -400,14 +400,14 @@ rank_stronk <- data.frame("2011" = rank(-stronk$`2011`, ties.method = "random", 
 # Closeness--
 
 
-rank_close <- data.frame("2011" = rank(-closen$`2011`, ties.method = "random", na.last = "keep"),
-                           "2012" = rank(-closen$`2012`, ties.method = "random", na.last = "keep"),
-                           "2013" = rank(-closen$`2013`, ties.method = "random", na.last = "keep"),
-                           "2014" = rank(-closen$`2014`, ties.method = "random", na.last = "keep"),
-                           "2015" = rank(-closen$`2015`, ties.method = "random", na.last = "keep"),
-                           "2016" = rank(-closen$`2016`, ties.method = "random", na.last = "keep"),
-                           "2017" = rank(-closen$`2017`, ties.method = "random", na.last = "keep"),
-                           "2018" = rank(-closen$`2018`, ties.method = "random", na.last = "keep"),
+rank_close <- data.frame("2011" = rank(-closen$`2011`, ties.method = "average", na.last = "keep"),
+                           "2012" = rank(-closen$`2012`, ties.method = "average", na.last = "keep"),
+                           "2013" = rank(-closen$`2013`, ties.method = "average", na.last = "keep"),
+                           "2014" = rank(-closen$`2014`, ties.method = "average", na.last = "keep"),
+                           "2015" = rank(-closen$`2015`, ties.method = "average", na.last = "keep"),
+                           "2016" = rank(-closen$`2016`, ties.method = "average", na.last = "keep"),
+                           "2017" = rank(-closen$`2017`, ties.method = "average", na.last = "keep"),
+                           "2018" = rank(-closen$`2018`, ties.method = "average", na.last = "keep"),
                            row.names = row.names(closen),
                            check.rows = TRUE
 )
