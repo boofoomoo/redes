@@ -182,7 +182,7 @@ bona <- as.data.frame(t(bona))
 
 #write.csv(degrease, file = "metricas.csv", quote = TRUE, na = "", fileEncoding = "UTF-8")
 write.csv(stronk, file = "stronk.csv", quote = TRUE, na = "", fileEncoding = "UTF-8")
-  write.csv(closen, file = "closen.csv", quote = TRUE, na = "", fileEncoding = "UTF-8")
+write.csv(closen, file = "closen.csv", quote = TRUE, na = "", fileEncoding = "UTF-8")
 write.csv(bituin, file = "bituin.csv", quote = TRUE, na = "", fileEncoding = "UTF-8")
 write.csv(bona, file = "bona.csv", quote = TRUE, na = "", fileEncoding = "UTF-8")
 
@@ -210,7 +210,6 @@ write.csv(tab_all, file = "metrics_all.csv")
 
 #------ Global metrics ------
 
-
 global <- plyr::rbind.fill(as.data.frame(t(diameter(Itrip_11))),
                            as.data.frame(t(diameter(Itrip_12))),
                            as.data.frame(t(diameter(Itrip_13))),
@@ -219,6 +218,8 @@ global <- plyr::rbind.fill(as.data.frame(t(diameter(Itrip_11))),
                            as.data.frame(t(diameter(Itrip_16))),
                            as.data.frame(t(diameter(Itrip_17))),
                            as.data.frame(t(diameter(Itrip_18))))
+
+
 
 
 
@@ -234,6 +235,8 @@ rownames(global) <- c("2011",
 
 global <- as.data.frame(t(global))
 
+
+write.csv(global, file = "globais.csv", quote = TRUE, na = "", fileEncoding = "UTF-8")
 
 
 #---
@@ -266,13 +269,22 @@ global$`2018`[3] <- edge_density(simplify(Itrip_18))
 
 #---
 
-global <- rbind(global, c(19, 30, 38, 41, 47, 51, 56, 64))
+global <- rbind(global, 1)
 
-
+global$`2011`[4] <- gorder(Itrip_11)
+global$`2012`[4] <- gorder(Itrip_12)
+global$`2013`[4] <- gorder(Itrip_13)
+global$`2014`[4] <- gorder(Itrip_14)
+global$`2015`[4] <- gorder(Itrip_15)
+global$`2016`[4] <- gorder(Itrip_16)
+global$`2017`[4] <- gorder(Itrip_17)
+global$`2018`[4] <- gorder(Itrip_18)
 
 rownames(global) <- c("Diameter", "Size", "Density", "n_Vertex")
 
-global <- t(global)
+
+
+#--
 
 cluster_coef <- data.frame("2011" = transitivity(Itrip_11, type = "global"),
                            "2012" =  transitivity(Itrip_12, type = "global"),
@@ -362,7 +374,6 @@ view(distances(ig_Anos, v = "Parque Gaúcho"))
 View(shortest_paths(ig_Anos, from = "A Mina", output = "vpath"))
 
 
-view(get.edge.ids())
 
 # Trynna create a ranking table -----------
 
@@ -450,4 +461,37 @@ View(data.frame(
   "2018" = mean_distance(Itrip_18)
 )
 )
+
+# Subgroup Density -------------------
+
+
+## First things is to map the groups as attributes
+
+subgroup_class <- readxl::read_excel("C:/Users/zeroc/OneDrive - unb.br/Arquivos de Pesquisas/Dados e Tabelas/Gramado - Dados e Tabelas/Finais/Metricas.xlsx", sheet = "Classes de Modularidade")
+
+
+trying <- function(rede){
+  for (i in 0:2){
+    
+    rede <-
+      set_vertex_attr(rede,
+                      "Grupo",
+                      index = intersect(
+                        V(rede),
+                        filter(subgroup_class, COD_Grupo == i)$Atrativo
+                      ),
+                      value = i)
+  
+  }  
+}
+
+trying(Itrip_11)
+trying(Itrip_12)
+trying(Itrip_13)
+trying(Itrip_14)
+trying(Itrip_15)
+trying(Itrip_16)
+trying(Itrip_17)
+trying(Itrip_18)
+
 

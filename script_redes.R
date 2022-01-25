@@ -233,15 +233,52 @@ head(Itrip_17)
 
 
 #---- Remove the bitch ass vertices -----
+del_v <- c(
+        "Central de Informações Turísticas de Gramado",
+        "Centro de Informações Turísticas",
+        "Praça da Criança",
+        "Caminho das Estrelas",
+        "Estátua do Maestro Eleazar de Carvalho",
+        "Praça do Moínho",
+        "Cascata Véu de Noiva",
+        "Trem Maria Fumaça",
+        "Capela Cristo Ressuscitado",
+        "Galleria D'arte Giovanni Bocchi",
+        "Igreja Metodista",
+        "Parque do Palácio",
+        "Adega Dom Carlo",
+        "Colorio",
+        "Museu do Sapato",
+        "Parque Olivas de Gramado",
+        "Vinícola Stopassola")
 
-Itrip_18 <- delete.vertices(Itrip_18, which(strength(Itrip_18) < 8))
-Itrip_17 <- delete.vertices(Itrip_17, which(strength(Itrip_17) < 8))
-Itrip_16 <- delete.vertices(Itrip_16, which(strength(Itrip_16) < 8))
-Itrip_15 <- delete.vertices(Itrip_15, which(strength(Itrip_15) < 8))
-Itrip_14 <- delete.vertices(Itrip_14, which(strength(Itrip_14) < 8))
-Itrip_13 <- delete.vertices(Itrip_13, which(strength(Itrip_13) < 8))
-Itrip_12 <- delete.vertices(Itrip_12, which(strength(Itrip_12) < 8))
-Itrip_11 <- delete.vertices(Itrip_11, which(strength(Itrip_11) < 8))
+
+
+gephi <- c()
+
+
+
+
+Itrip_18 <- delete.vertices(Itrip_18, intersect(del_v, V(Itrip_18)$name))
+Itrip_17 <- delete.vertices(Itrip_17, intersect(del_v, V(Itrip_17)$name))
+Itrip_16 <- delete.vertices(Itrip_16, intersect(del_v, V(Itrip_16)$name))
+Itrip_15 <- delete.vertices(Itrip_15, intersect(del_v, V(Itrip_15)$name))
+Itrip_14 <- delete.vertices(Itrip_14, intersect(del_v, V(Itrip_14)$name))
+Itrip_13 <- delete.vertices(Itrip_13, intersect(del_v, V(Itrip_13)$name))
+Itrip_12 <- delete.vertices(Itrip_12, intersect(del_v, V(Itrip_12)$name))
+Itrip_11 <- delete.vertices(Itrip_11, intersect(del_v, V(Itrip_11)$name))
+
+
+
+#
+Itrip_18 <- delete.vertices(Itrip_18, which(strength(Itrip_18) < 1))
+Itrip_17 <- delete.vertices(Itrip_17, which(strength(Itrip_17) < 1))
+Itrip_16 <- delete.vertices(Itrip_16, which(strength(Itrip_16) < 1))
+Itrip_15 <- delete.vertices(Itrip_15, which(strength(Itrip_15) < 1))
+Itrip_14 <- delete.vertices(Itrip_14, which(strength(Itrip_14) < 1))
+Itrip_13 <- delete.vertices(Itrip_13, which(strength(Itrip_13) < 1))
+Itrip_12 <- delete.vertices(Itrip_12, which(strength(Itrip_12) < 1))
+Itrip_11 <- delete.vertices(Itrip_11, which(strength(Itrip_11) < 1))
 
 
 
